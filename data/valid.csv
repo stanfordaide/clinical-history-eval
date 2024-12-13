@@ -1,0 +1,21 @@
+entry_id,history,pmh,what,when,where,concern
+81,"Severe left flank pain radiating to groin, suspect kidney stone.",not included,flank pain radiating to groin,not included,left flank,kidney stone
+82,"Blurred vision and headache, evaluate for pseudotumor cerebri.",not included,blurred vision and headache,not included,not included,pseudotumor cerebri
+83,Rule out pneumonia: patient with high fever and productive cough for 4 days.,not included,fever and productive cough,4 days,not included,pneumonia
+84,"History of migraines, now with sudden loss of vision in right eye.",migraines,loss of vision,sudden,right eye,not included
+85,"Abdominal pain and distension after surgery, concern for bowel obstruction.",recent surgery,abdominal pain and distension,not included,abdomen,bowel obstruction
+86,Evaluate wrist fracture: patient fell on outstretched hand yesterday.,not included,wrist pain,yesterday,wrist,fracture
+87,"Patient with uncontrolled hypertension presenting with chest pain, rule out aortic dissection.",uncontrolled hypertension,chest pain,not included,chest,aortic dissection
+88,"Frequent urination and thirst, check for diabetes.",not included,frequent urination and thirst,not included,not included,diabetes
+89,Suspect appendicitis: right lower abdominal pain with fever and nausea.,not included,"pain, fever, nausea",not included,right lower abdomen,appendicitis
+90,"Chronic knee pain, evaluate for osteoarthritis.",not included,knee pain,chronic,knee,osteoarthritis
+91,"Left-sided weakness and slurred speech, concern for stroke.",not included,weakness and slurred speech,not included,not included,stroke
+92,"Persistent cough in a non-smoker, evaluate for lung cancer.",non-smoker,persistent cough,not included,not included,lung cancer
+93,"Postoperative patient with shortness of breath, concern for pulmonary embolism.",recent surgery,shortness of breath,not included,not included,pulmonary embolism
+94,Check for abscess: patient with swollen and painful left thigh after insect bite.,not included,swollen and painful thigh,not included,left thigh,abscess
+95,Evaluate for concussion: head injury after falling off bike.,not included,head injury,not included,head,concussion
+96,"Progressive loss of appetite and abdominal pain, concern for pancreatic cancer.",not included,loss of appetite and abdominal pain,progressive,abdomen,pancreatic cancer
+97,"Patient with chronic kidney disease presenting with difficulty breathing, evaluate for fluid overload.",chronic kidney disease,difficulty breathing,not included,not included,fluid overload
+98,"Left hip pain after a fall in an elderly patient, rule out hip fracture.",elderly,hip pain,not included,left hip,hip fracture
+99,"Sudden chest pain and rapid heart rate, concern for arrhythmia.",not included,chest pain and rapid heart rate,sudden,chest,arrhythmia
+100,Evaluate for infection: redness and swelling around surgical site.,not included,redness and swelling,not included,not included,infection

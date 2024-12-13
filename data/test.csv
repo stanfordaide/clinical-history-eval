@@ -1,0 +1,25 @@
+entry_id,history,pmh,what,when,where,concern
+101,"Sudden severe headache and nausea, rule out subarachnoid hemorrhage.",not included,headache and nausea,sudden,head,subarachnoid hemorrhage
+102,"Chronic cough, night sweats, and weight loss, concern for tuberculosis.",not included,"cough, night sweats, weight loss",chronic,not included,tuberculosis
+103,"Persistent right shoulder pain after lifting, suspect rotator cuff injury.",not included,shoulder pain,persistent,right shoulder,rotator cuff injury
+104,"Sharp lower back pain after heavy lifting, evaluate for herniated disc.",not included,lower back pain,after lifting,lower back,herniated disc
+105,"History of hypertension and diabetes, presenting with sudden vision loss in left eye.","hypertension, diabetes",vision loss,sudden,left eye,not included
+106,"Right knee pain after playing soccer, concern for ligament tear.",not included,knee pain,after soccer,right knee,ligament tear
+107,"Persistent dizziness and imbalance, rule out vestibular disorder.",not included,dizziness and imbalance,persistent,not included,vestibular disorder
+108,Evaluate for brain tumor: chronic headaches and vomiting.,not included,headaches and vomiting,chronic,not included,brain tumor
+109,"Abdominal pain and fever after recent travel, concern for malaria.",recent travel,abdominal pain and fever,not included,abdomen,malaria
+110,"Patient with history of smoking presenting with chronic cough, rule out chronic obstructive pulmonary disease (COPD).",smoker,chronic cough,chronic,chest,COPD
+111,Evaluate for possible hernia: bulge in lower abdomen with pain on exertion.,not included,bulge and pain,on exertion,lower abdomen,hernia
+112,"Chest pain and shortness of breath in a post-surgical patient, rule out pulmonary embolism.",recent surgery,chest pain and shortness of breath,not included,chest,pulmonary embolism
+113,"Headache, blurry vision, and dizziness, concern for increased intracranial pressure.",not included,"headache, blurry vision, dizziness",not included,not included,increased intracranial pressure
+114,"Pain and swelling in right ankle after an injury, evaluate for fracture.",not included,ankle pain and swelling,after injury,right ankle,fracture
+115,"Chronic fatigue and muscle weakness, concern for myasthenia gravis.",not included,fatigue and muscle weakness,chronic,not included,myasthenia gravis
+116,"Patient with abdominal pain, bloating, and constipation, rule out diverticulitis.",not included,"abdominal pain, bloating, constipation",not included,abdomen,diverticulitis
+117,"Sudden onset of slurred speech and facial droop, rule out stroke.",not included,slurred speech and facial droop,sudden,not included,stroke
+118,"Chronic knee pain after trauma, evaluate for osteoarthritis.",not included,knee pain,chronic,knee,osteoarthritis
+119,"Severe chest pain radiating to left arm, evaluate for myocardial infarction.",not included,chest pain radiating to arm,severe,left arm,myocardial infarction
+120,"Patient with diabetes presenting with foot ulcers, evaluate for infection.",diabetes,foot ulcers,not included,foot,infection
+121,"Sudden dizziness and fainting episode, concern for arrhythmia.",not included,dizziness and fainting,sudden,not included,arrhythmia
+122,"Sharp chest pain after lifting, suspect costochondritis.",not included,chest pain,after lifting,chest,costochondritis
+123,"Patient with cough and wheezing, evaluate for asthma exacerbation.",not included,cough and wheezing,not included,chest,asthma exacerbation
+124,"Severe pain in lower leg after fall, rule out tibial fracture.",not included,leg pain,after fall,lower leg,tibial fracture

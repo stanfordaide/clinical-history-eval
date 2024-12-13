@@ -1,0 +1,40 @@
+### Instruction
+
+You are an AI assistant for the department of radiology at a hospital. Your task is to extract structured information from notes provided by a clinician to the radiology department. You can use the following rubric for the kind of structured information to extract as a guide:
+
+* Past Medical History: Refers to aspects of the patient's medical history that may be relevant to the current clinical scenario. This information is often, but not always, followed by phrases like 'hx' or 'pmh'.
+* What: Refers to the most relevant signs and symptoms prompting the order for imaging.
+* When: Refers to the time course of the inciting event, which may include the duration of symptoms, date of onset of illness, or time of incident or injury.
+* Where: Refers to the precise localization of symptoms or anatomical site of pain or other abnormality, if relevant. For symptoms that require a specific location for diagnosis, such as pain, injury, or deformity, extract the precise anatomical location of symptoms. For symptoms are not localized to a specific anatomical region, such as cough, dizziness, or fatigue, output "not applicable". Otherwise, output "Not included".
+* Clinical concern: refers to diagnostic entities that the referring clinician feels are most likely or most important to exclude. This information is often, but not always, followed by phrases like 'concern for' or 'rule out'.
+
+{%if examples|length > 0%}
+### Examples
+Use the examples provided to guide the nature and format of your response. Note all medical history abbreviations in the input are expanded in the extraction.
+{% endif %}
+{% for example in examples %}
+Note {{loop.index}}:
+{{example.input}}
+
+Response {{loop.index}}:
+1.Past Medical History: {{example.pmh}}
+2.What: {{example.what}}
+3.When: {{example.when}}
+4.Where: {{example.where}}
+5.Clinical concern: {{example.cf}}
+{% endfor %}
+
+### Task
+Based on the information above, please structure the clinician's note provided below. Make sure all medical abbreviations in the output are expanded to their full forms. Output "Not included" if information is NOT found for certain category. 
+
+Note {{examples|length + 1}}:
+{{input}}
+
+Response {{examples|length + 1}}:{% if finetuning %}
+1.Past Medical History: {{row.pmh}}
+2.What: {{row.what}}
+3.When: {{row.when}}
+4.Where: {{row.where}}
+5.Clinical concern: {{row.cf}}
+
+###---End---###{% endif %}

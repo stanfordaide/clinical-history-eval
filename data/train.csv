@@ -1,0 +1,81 @@
+entry_id,history,pmh,what,when,where,concern
+1,Check lungs.,not included,not included,not included,lungs,not included
+2,"67-year-old diabetic with right lower extremity swelling for 5 days, rule out DVT.",diabetes,swelling,5 days,right leg,DVT
+3,"47-year-old smoker with worsening cough and shortness of breath, concern for lung cancer.",smoker,cough and shortness of breath,not included,lungs,lung cancer
+4,CT abdomen/pelvis for abdominal pain.,not included,abdominal pain,not included,abdomen/pelvis,not included
+5,"52-year-old with fatigue and bilateral lower extremity edema, rule out CHF.",not included,fatigue and edema,not included,legs,CHF
+6,"Weakness and speech problems, evaluate for stroke.",not included,weakness and speech problems,not included,not included,stroke
+7,"42-year-old with fever, chills, and left flank pain for 3 days, concern for pyelonephritis.",not included,"fever, chills, and pain",3 days,left flank,pyelonephritis
+8,35-year-old with persistent knee pain after injury 2 months ago.,not included,knee pain,2 months ago,knee,not included
+9,Pain in abdomen.,not included,pain,not included,abdomen,not included
+10,"Head trauma yesterday, rule out bleed.",not included,head trauma,yesterday,head,bleed
+11,"73-year-old with weight loss and abdominal fullness, concern for malignancy.",not included,weight loss and fullness,not included,abdomen,malignancy
+12,Left arm pain after recent fall.,not included,pain,recent,left arm,not included
+13,"Evaluate chest for masses, patient with chronic cough.",not included,cough and masses,not included,chest,not included
+14,"Severe headache for 24 hours, rule out aneurysm.",not included,headache,24 hours,not included,aneurysm
+15,"Persistent fever and chills, concern for infection.",not included,fever and chills,not included,not included,infection
+16,60-year-old with a history of cancer and new back pain.,cancer,back pain,new,back,not included
+17,Ultrasound to assess thyroid nodule.,not included,thyroid nodule,not included,thyroid,not included
+18,"Sudden vision loss, evaluate for stroke or embolism.",not included,vision loss,sudden,not included,stroke or embolism
+19,"45-year-old with cough, hemoptysis, and fever.",not included,"cough, hemoptysis, and fever",not included,not included,not included
+20,CT abdomen to rule out appendicitis.,not included,not included,not included,abdomen,appendicitis
+21,"Cough and chest pain for 2 weeks, rule out pneumonia.",not included,cough and chest pain,2 weeks,chest,pneumonia
+22,"Right-sided weakness and facial droop, concern for stroke.",not included,weakness and facial droop,not included,right side,stroke
+23,"Abdominal bloating and weight loss over 1 month, evaluate for malignancy.",not included,bloating and weight loss,1 month,abdomen,malignancy
+24,"Chronic right hip pain, no recent trauma.",not included,hip pain,chronic,right hip,not included
+25,"65-year-old with worsening headaches, concern for tumor.",not included,headaches,worsening,head,tumor
+26,"Evaluate liver function, patient with alcohol abuse history.",alcohol abuse,not included,not included,liver,not included
+27,Severe leg pain after running marathon yesterday.,not included,leg pain,yesterday,leg,not included
+28,"History of breast cancer, new lump in right breast.",breast cancer,lump,new,right breast,not included
+29,"Back pain radiating to legs, concern for herniated disc.",not included,back pain,not included,back/legs,herniated disc
+30,"Trauma from car accident, rule out internal bleeding.",not included,trauma,not included,not included,internal bleeding
+31,"50-year-old with shortness of breath and chest tightness, rule out PE.",not included,shortness of breath and chest tightness,not included,chest,PE
+32,"Hematuria for 1 week, concern for bladder cancer.",not included,hematuria,1 week,bladder,bladder cancer
+33,Evaluate neck lump in 40-year-old smoker.,smoker,neck lump,not included,neck,not included
+34,"Ultrasound to assess for gallstones, patient with RUQ pain.",not included,RUQ pain,not included,RUQ,gallstones
+35,"Generalized weakness and fatigue, concern for anemia.",not included,weakness and fatigue,not included,not included,anemia
+36,58-year-old with unintentional weight loss and upper abdominal pain.,not included,weight loss and pain,not included,upper abdomen,not included
+37,"Fainting episode while exercising, evaluate for cardiac cause.",not included,fainting,not included,not included,cardiac cause
+38,"Persistent nausea and vomiting for 3 days, rule out bowel obstruction.",not included,nausea and vomiting,3 days,not included,bowel obstruction
+39,"Patient with history of migraines, evaluate for acute intracranial process.",migraines,not included,not included,head,intracranial process
+40,"New mass in axilla, evaluate for lymphoma.",not included,mass,new,axilla,lymphoma
+41,"Uncontrolled diabetes, foot ulcer worsening over 2 months.",diabetes,foot ulcer,2 months,foot,not included
+42,"Severe neck pain after fall from ladder, evaluate for fracture.",not included,neck pain,not included,neck,fracture
+43,"Intermittent chest tightness, smoker, rule out coronary artery disease.",smoker,chest tightness,intermittent,chest,coronary artery disease
+44,"Patient with fever and cough, concern for COVID-19.",not included,fever and cough,not included,not included,COVID-19
+45,"Lower abdominal cramping, evaluate for appendicitis.",not included,abdominal cramping,not included,lower abdomen,appendicitis
+46,MRI of spine requested for persistent low back pain.,not included,low back pain,persistent,back,not included
+47,"New onset seizures in 25-year-old, rule out mass or infection.",not included,seizures,new onset,not included,mass or infection
+48,"Blood in stools for 3 weeks, concern for GI bleed.",not included,blood in stools,3 weeks,not included,GI bleed
+49,"Recurring right wrist pain, evaluate for tendonitis.",not included,wrist pain,recurring,right wrist,tendonitis
+50,"Blurry vision and dizziness, rule out MS.",not included,blurry vision and dizziness,not included,not included,MS
+51,"Persistent cough and hemoptysis, smoker, concern for lung cancer.",smoker,cough and hemoptysis,persistent,lungs,lung cancer
+52,"Patient with sudden onset flank pain, rule out kidney stones.",not included,flank pain,sudden onset,flank,kidney stones
+53,"Difficulty swallowing, concern for esophageal stricture.",not included,difficulty swallowing,not included,esophagus,esophageal stricture
+54,"Chronic sinus congestion, evaluate for polyps.",not included,sinus congestion,chronic,sinuses,polyps
+55,"Swollen left knee after soccer injury, evaluate for ACL tear.",not included,swollen knee,not included,left knee,ACL tear
+56,"Pregnant patient with decreased fetal movement, rule out distress.",not included,decreased fetal movement,not included,not included,fetal distress
+57,"Severe headache after lumbar puncture, evaluate for CSF leak.",not included,headache,not included,not included,CSF leak
+58,"History of hypertension, blurry vision in both eyes.",hypertension,blurry vision,not included,eyes,not included
+59,"Right upper quadrant pain after heavy meal, rule out gallbladder disease.",not included,RUQ pain,not included,RUQ,gallbladder disease
+60,"Non-specific leg swelling, concern for DVT.",not included,leg swelling,not included,leg,DVT
+61,Evaluate for infection: patient presents with fever and chills for 5 days.,not included,fever and chills,5 days,not included,infection
+62,"Severe lower back pain radiating to the left leg, suspect herniated disc.",not included,back pain radiating to leg,not included,lower back,herniated disc
+63,Rule out fracture: right ankle pain after a fall while running.,not included,ankle pain,not included,right ankle,fracture
+64,"Shortness of breath, smoker, rule out pulmonary embolism.",smoker,shortness of breath,not included,not included,pulmonary embolism
+65,"Chronic abdominal bloating and diarrhea, concern for inflammatory bowel disease.",not included,bloating and diarrhea,chronic,abdomen,inflammatory bowel disease
+66,Check for abnormalities: patient has hearing loss in right ear for 2 months.,not included,hearing loss,2 months,right ear,not included
+67,"Persistent nausea and vomiting in a diabetic patient, concern for gastroparesis.",diabetic,nausea and vomiting,persistent,not included,gastroparesis
+68,"Right shoulder pain after lifting heavy weights, suspect rotator cuff tear.",not included,shoulder pain,not included,right shoulder,rotator cuff tear
+69,"Fever and stiff neck, rule out meningitis.",not included,fever and stiff neck,not included,not included,meningitis
+70,"Chronic cough and chest pain, rule out tuberculosis.",not included,cough and chest pain,chronic,chest,tuberculosis
+71,"History of breast cancer, now with palpable lump in left axilla.",breast cancer,palpable lump,not included,left axilla,not included
+72,Evaluate for ectopic pregnancy: pelvic pain and spotting in first trimester.,not included,pelvic pain and spotting,not included,pelvis,ectopic pregnancy
+73,"Recurrent nosebleeds, rule out nasal tumor.",not included,nosebleeds,recurrent,nose,nasal tumor
+74,"History of stroke, now presenting with sudden weakness in right arm.",stroke,weakness,sudden,right arm,not included
+75,"Blurred vision in one eye, evaluate for optic neuritis.",not included,blurred vision,not included,one eye,optic neuritis
+76,"Right calf swelling after a long flight, concern for deep vein thrombosis.",not included,calf swelling,not included,right calf,DVT
+77,"Persistent fatigue and weight loss, rule out malignancy.",not included,fatigue and weight loss,persistent,not included,malignancy
+78,"Difficulty urinating and lower abdominal pain, concern for bladder outlet obstruction.",not included,difficulty urinating and pain,not included,lower abdomen,bladder outlet obstruction
+79,"Patient reports frequent falls and unsteady gait, evaluate for cerebellar pathology.",not included,frequent falls and unsteady gait,not included,not included,cerebellar pathology
+80,"Head trauma after car accident, rule out intracranial bleed.",not included,head trauma,not included,head,intracranial bleed
