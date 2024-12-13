@@ -1,4 +1,3 @@
- // Start of Selection
 # Clinical History Evaluation
 
 Official Implementation by the Stanford AI Development and Evaluation Lab
@@ -211,3 +210,21 @@ sbatch -c 8 --gres=gpu:l40:1 --time=2:00:00 slurm.sh     --module=evaluation    
 
 
 sbatch -c 8 --gres=gpu:l40:1 --time=2:00:00 slurm.sh     --module=evaluation     --test-data=data/test.csv      --output-dir=outputs/evaluation
+
+
+raw model
+2024-12-12 18:35:54,229 - INFO - Average BERTScore F1: 0.7671
+2024-12-12 18:35:54,230 - INFO - PMH F1: 0.7585
+2024-12-12 18:35:54,231 - INFO - WHAT F1: 0.6362
+2024-12-12 18:35:54,231 - INFO - WHEN F1: 0.8284
+2024-12-12 18:35:54,232 - INFO - WHERE F1: 0.7520
+2024-12-12 18:35:54,233 - INFO - CONCERN F1: 0.8606
+
+
+Evaluation Results:
+2024-12-12 18:42:24,059 - INFO - Average BERTScore F1: 0.7321
+2024-12-12 18:42:24,060 - INFO - PMH F1: 0.8260
+2024-12-12 18:42:24,060 - INFO - WHAT F1: 0.6213
+2024-12-12 18:42:24,061 - INFO - WHEN F1: 0.8274
+2024-12-12 18:42:24,061 - INFO - WHERE F1: 0.6456
+2024-12-12 18:42:24,062 - INFO - CONCERN F1: 0.7400
