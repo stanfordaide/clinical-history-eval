@@ -61,15 +61,15 @@ Process a single clinical history text and output structured components.
 ```python
 python inference.py \
     --text="Relevant PMH ESRD. Presents with L foot gangrene for a duration of 3 weeks. Specific location of issue (if applicable): 2nd digit of L foot. Concern for gangrene." \
-    --output-dir="test_output"
+    --output-dir="outputs/inference/single-text"
 ```
 
 #### 4.1.2 Batch Inference from CSV
 Process multiple clinical histories from a CSV file in batch mode.
 ```python
 python inference.py \
-    --csv="path/to/input.csv" \
-    --output-dir="test_output"
+    --csv="data/example-inference.csv" \
+    --output-dir="outputs/inference/csv"
 ```
 
 #### 4.1.3 In-Context Learning (ICL)
@@ -78,10 +78,31 @@ Enable dynamic example selection to improve inference quality using similar case
 Add these flags to enable ICL:
 ```python
 --use-icl \
---icl-data="path/to/examples.csv" \
---n-icl-examples=16 \
---index-path="test_output/faiss_index"
+--icl-data="data/train.csv" \
+--n-icl-examples=4 \
+--index-path="outputs/vectordb/db"
 ```
+
+#### 4.1.4 Using Locally Finetuned Model
+After finetuning the model locally, you can use the finetuned model for inference by specifying the `--peft-model` parameter with the path to your finetuned model directory.
+
+**Example: Batch Inference with Finetuned Model**
+```python
+python inference.py \
+    --csv="data/example-inference.csv" \
+    --output-dir="outputs/inference/csv" \
+    --peft-model="outputs/finetuning"
+```
+
+**Example: Single Text Inference with Finetuned Model**
+```python
+python inference.py \
+    --text="Relevant PMH ESRD. Presents with L foot gangrene for a duration of 3 weeks. Specific location of issue (if applicable): 2nd digit of L foot. Concern for gangrene." \
+    --output-dir="outputs/inference/single-text" \
+    --peft-model="outputs/finetuning"
+```
+
+This allows the inference script to utilize the adaptations made during finetuning, potentially improving extraction accuracy based on the specialized training data.
 
 ### 4.2 Finetuning
 Adapt the model to your specific use case or dataset through additional training.
@@ -91,9 +112,9 @@ Simple finetuning configuration for quick model adaptation.
 
 ```python
 python finetuning.py \
-    --train-data="path/to/train.csv" \
-    --val-data="path/to/val.csv" \
-    --output-dir="finetuning_output" \
+    --train-data="data/train.csv" \
+    --val-data="data/valid.csv" \
+    --output-dir="outputs/finetuning" \
     --batch-size=4 \
     --epochs=3
 ```
@@ -103,10 +124,9 @@ Extended configuration options for more control over the training process.
 
 ```python
 python finetuning.py \
-    --train-data="path/to/train.csv" \
-    --val-data="path/to/val.csv" \
-    --output-dir="finetuning_output" \
-    --base-model="mistralai/Mistral-7B-v0.1" \
+    --train-data="data/train.csv" \
+    --val-data="data/valid.csv" \
+    --output-dir="outputs/finetuning" \
     --batch-size=4 \
     --grad-accum=4 \
     --lr=2e-4 \
@@ -115,6 +135,51 @@ python finetuning.py \
     --lora-alpha=128 \
     --lora-dropout=0.05 \
     --load-in-8bit
+```
+
+### 4.3 Evaluation
+Run evaluation on test data to measure model performance using BERTScore metrics.
+
+#### 4.3.1 Basic Evaluation
+Evaluate model performance on test data:
+
+```python
+python evaluation.py \
+    --test-data="data/test.csv" \
+    --output-dir="outputs/evaluation"
+```
+
+#### 4.3.2 Evaluation with Finetuned Model
+Evaluate performance using a locally finetuned model:
+
+```python
+python evaluation.py \
+    --test-data="data/test.csv" \
+    --peft-model="outputs/finetuning" \
+    --output-dir="outputs/evaluation"
+```
+
+#### 4.3.3 Sample Evaluation Results
+The evaluation script calculates BERTScore F1 scores for each component:
+
+Base Model Results:
+```
+Average BERTScore F1: 0.7671
+PMH F1: 0.7585
+WHAT F1: 0.6362
+WHEN F1: 0.8284
+WHERE F1: 0.7520
+CONCERN F1: 0.8606
+```
+
+Finetuned Model Results:
+```
+Average BERTScore F1: 0.7321
+PMH F1: 0.8260
+WHAT F1: 0.6213
+WHEN F1: 0.8274
+WHERE F1: 0.6456
+CONCERN F1: 0.7400
 ```
 
 ## 5. Key Parameters
@@ -142,9 +207,10 @@ python finetuning.py \
 - `--lora-dropout`: LoRA dropout value (default: 0.05)
 
 
+
 ## 6. Using Slurm
 
-Both inference and finetuning scripts can be run using Slurm. Example usage:
+Both inference and finetuning scripts can be run using Slurm, just pass the python module name to the script. Example usage:
 
 ```bash
 # For inference
@@ -196,35 +262,24 @@ If you find this work useful in your research, please consider citing:
 @article{larson2024assessing,
     title={Assessing the Completeness of Clinical Histories Accompanying Imaging Orders using Open- and Closed-Source Large Language Models},
     author={Larson, David and Koirala, Arogya and Chuey, Lina and Paschali, Magdalini and Van Veen, Dave and Na, Hye Sun and Petterson, Matthew and Fang, Zhongnan and Chaudhari, Akshay S.},
-    journal={arXiv preprint},
-    year={2024}
+    journal={Radiology},
+    year={2024},
+    publisher={Radiological Society of North America}
 }
 ```
 
 ## 10. License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Copyright [2024] [Stanford AI Development and Evaluation Lab]
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-sbatch -c 8 --gres=gpu:l40:1 --time=2:00:00 slurm.sh     --module=evaluation     --test-data=data/test.csv     --peft-model=/dataNAS/people/arogya/projects/clinical-history-eval/outputs/training --output-dir=outputs/evaluation
+    http://www.apache.org/licenses/LICENSE-2.0
 
-
-sbatch -c 8 --gres=gpu:l40:1 --time=2:00:00 slurm.sh     --module=evaluation     --test-data=data/test.csv      --output-dir=outputs/evaluation
-
-
-raw model
-2024-12-12 18:35:54,229 - INFO - Average BERTScore F1: 0.7671
-2024-12-12 18:35:54,230 - INFO - PMH F1: 0.7585
-2024-12-12 18:35:54,231 - INFO - WHAT F1: 0.6362
-2024-12-12 18:35:54,231 - INFO - WHEN F1: 0.8284
-2024-12-12 18:35:54,232 - INFO - WHERE F1: 0.7520
-2024-12-12 18:35:54,233 - INFO - CONCERN F1: 0.8606
-
-
-Evaluation Results:
-2024-12-12 18:42:24,059 - INFO - Average BERTScore F1: 0.7321
-2024-12-12 18:42:24,060 - INFO - PMH F1: 0.8260
-2024-12-12 18:42:24,060 - INFO - WHAT F1: 0.6213
-2024-12-12 18:42:24,061 - INFO - WHEN F1: 0.8274
-2024-12-12 18:42:24,061 - INFO - WHERE F1: 0.6456
-2024-12-12 18:42:24,062 - INFO - CONCERN F1: 0.7400
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

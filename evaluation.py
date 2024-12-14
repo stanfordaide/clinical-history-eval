@@ -12,6 +12,9 @@ from utils.dataloader import HistoryLoader
 from utils.model import HistoryEvalModel, ModelConfig
 from utils.parser import OutputParser
 import time
+import numpy as np
+from sklearn.metrics import cohen_kappa_score
+
 
 def setup_logging(verbose: bool = False):
     """Setup logging configuration."""
@@ -62,17 +65,49 @@ def parse_args():
     
     return parser.parse_args()
 
-def calculate_bertscore(predictions, ground_truth, scorer):
-    """Calculate BERTScore for predictions against ground truth."""
+def calculate_metrics(predictions, ground_truth, scorer):
+    """Calculate both BERTScore and Cohen's Kappa for predictions."""
+    # Calculate BERTScore
     P, R, F1 = scorer.score(predictions, ground_truth)
-    return {
+    bertscore = {
         'precision': P.mean().item(),
         'recall': R.mean().item(),
         'f1': F1.mean().item()
     }
+    
+    # Calculate binary versions and Cohen's Kappa
+    parser = OutputParser()
+    binary_predictions = []
+    binary_ground_truth = []
+    
+    for pred, truth in zip(predictions, ground_truth):
+        # Convert to binary
+        pred_binary = 0 if pred.lower().strip() in parser.null_phrases else 1
+        truth_binary = 0 if truth.lower().strip() in parser.null_phrases else 1
+        
+        binary_predictions.append(pred_binary)
+        binary_ground_truth.append(truth_binary)
+    
+    kappa = cohen_kappa_score(binary_predictions, binary_ground_truth)
+    
+    return {
+        'bertscore': bertscore,
+        'kappa': kappa,
+        'binary_metrics': {
+            'predictions': binary_predictions,
+            'ground_truth': binary_ground_truth
+        }
+    }
+
+def calculate_ground_truth_binary(ground_truth: dict, null_phrases: set) -> dict:
+    """Convert ground truth values to binary directly."""
+    return {
+        field: 0 if str(value).lower().strip() in null_phrases else 1
+        for field, value in ground_truth.items()
+    }
 
 def evaluate_model(model, test_loader, output_dir, logger):
-    """Evaluate model performance using BERTScore."""
+    """Evaluate model performance using BERTScore and binary metrics."""
     logger.info("Starting evaluation...")
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -97,14 +132,16 @@ def evaluate_model(model, test_loader, output_dir, logger):
         output = model.generate(prompt, max_length=500, temperature=0.7)
         inference_time = time.time() - start_time
         
-        # Parse the output
+        # Parse the output (both regular and binary)
         parser = OutputParser()
         parsed_output = parser.parse(output['generated_text'])
+        binary_output = parser.parse_binary(output['generated_text'])
         
         # Store individual result
         result = {
             'generated_text': output['generated_text'],
             'parsed_output': parsed_output,
+            'binary_output': binary_output,
             'metadata': {
                 'entry_id': row.get('entry_id', f'test_{idx}'),
                 'original_text': row['history'],
@@ -115,6 +152,16 @@ def evaluate_model(model, test_loader, output_dir, logger):
                     'where': row['where'],
                     'concern': row['concern']
                 },
+                'ground_truth_binary': calculate_ground_truth_binary(
+                    {
+                        'pmh': row['pmh'],
+                        'what': row['what'],
+                        'when': row['when'],
+                        'where': row['where'],
+                        'concern': row['concern']
+                    },
+                    parser.null_phrases
+                ),
                 'row_index': idx,
                 'inference_stats': {
                     'time_seconds': inference_time
@@ -135,10 +182,9 @@ def evaluate_model(model, test_loader, output_dir, logger):
             results[comp].append(pred)
             ground_truth[comp].append(truth)
     
-    # Calculate BERTScore for each component
     scores = {}
     for comp in components:
-        scores[comp] = calculate_bertscore(
+        scores[comp] = calculate_metrics(
             results[comp],
             ground_truth[comp],
             scorer
@@ -146,12 +192,15 @@ def evaluate_model(model, test_loader, output_dir, logger):
     
     # Calculate average scores across all components
     avg_scores = {
-        'precision': np.mean([scores[comp]['precision'] for comp in components]),
-        'recall': np.mean([scores[comp]['recall'] for comp in components]),
-        'f1': np.mean([scores[comp]['f1'] for comp in components])
+        'bertscore': {
+            'precision': np.mean([scores[comp]['bertscore']['precision'] for comp in components]),
+            'recall': np.mean([scores[comp]['bertscore']['recall'] for comp in components]),
+            'f1': np.mean([scores[comp]['bertscore']['f1'] for comp in components])
+        },
+        'kappa': np.mean([scores[comp]['kappa'] for comp in components])
     }
     
-    # Update the model_config section in evaluation_results
+    # Update evaluation results structure
     evaluation_results = {
         'component_scores': scores,
         'average_scores': avg_scores,
@@ -164,14 +213,18 @@ def evaluate_model(model, test_loader, output_dir, logger):
         }
     }
     
+    # Save results
     with open(output_path / 'evaluation_results.json', 'w') as f:
         json.dump(evaluation_results, f, indent=2)
     
     # Log summary results
     logger.info("\nEvaluation Results:")
-    logger.info(f"Average BERTScore F1: {avg_scores['f1']:.4f}")
+    logger.info(f"Average BERTScore F1: {avg_scores['bertscore']['f1']:.4f}")
+    logger.info(f"Average Cohen's Kappa: {avg_scores['kappa']:.4f}")
     for comp in components:
-        logger.info(f"{comp.upper()} F1: {scores[comp]['f1']:.4f}")
+        logger.info(f"{comp.upper()}:")
+        logger.info(f"  - BERTScore F1: {scores[comp]['bertscore']['f1']:.4f}")
+        logger.info(f"  - Cohen's Kappa: {scores[comp]['kappa']:.4f}")
     
     return evaluation_results
 

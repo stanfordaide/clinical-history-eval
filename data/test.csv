@@ -7,7 +7,7 @@ entry_id,history,pmh,what,when,where,concern
 106,"Right knee pain after playing soccer, concern for ligament tear.",not included,knee pain,after soccer,right knee,ligament tear
 107,"Persistent dizziness and imbalance, rule out vestibular disorder.",not included,dizziness and imbalance,persistent,not included,vestibular disorder
 108,Evaluate for brain tumor: chronic headaches and vomiting.,not included,headaches and vomiting,chronic,not included,brain tumor
-109,"Abdominal pain and fever after recent travel, concern for malaria.",recent travel,abdominal pain and fever,not included,abdomen,malaria
+109,"recent travel, concern for malaria.",recent travel,not included,not included,not included,malaria
 110,"Patient with history of smoking presenting with chronic cough, rule out chronic obstructive pulmonary disease (COPD).",smoker,chronic cough,chronic,chest,COPD
 111,Evaluate for possible hernia: bulge in lower abdomen with pain on exertion.,not included,bulge and pain,on exertion,lower abdomen,hernia
 112,"Chest pain and shortness of breath in a post-surgical patient, rule out pulmonary embolism.",recent surgery,chest pain and shortness of breath,not included,chest,pulmonary embolism
