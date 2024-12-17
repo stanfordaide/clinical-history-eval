@@ -1,0 +1,9 @@
+transformers==4.46.3
+torch==2.5.1
+faiss-cpu==1.9.0.post1
+numpy==1.26.4
+pandas==2.2.3
+Jinja2==3.1.4
+sentence_transformers==3.3.1
+trl==0.12.2
+bert-score==0.3.13

@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: clinical-history-eval
+Version: 0.1
+Summary: Assessing the Completeness of Clinical Histories Accompanying Imaging Orders using Open- and Closed-Source Large Language Models
+Author: Arogya Koirala
+Author-email: arogya@stanford.edu
+Requires-Python: >=3.10
+Requires-Dist: transformers==4.46.3
+Requires-Dist: torch==2.5.1
+Requires-Dist: faiss-cpu==1.9.0.post1
+Requires-Dist: numpy==1.26.4
+Requires-Dist: pandas==2.2.3
+Requires-Dist: Jinja2==3.1.4
+Requires-Dist: sentence_transformers==3.3.1
+Requires-Dist: trl==0.12.2
+Requires-Dist: bert-score==0.3.13
