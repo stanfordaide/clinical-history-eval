@@ -39,6 +39,18 @@ This project uses models from Hugging Face Hub. You'll need to authenticate to a
 3. Install huggingface-cli: `pip install huggingface-cli`
 4. Login using: `huggingface-cli login`
 
+
+### Optional: Change Hugging Face Cache Directory
+
+If you encounter disk quota issues with the default Hugging Face cache directory, you can set the `HF_HOME` environment variable to specify an alternative cache location.
+
+```bash
+export HF_HOME=/path/to/new/cache/directory
+```
+
+Consider adding the above line to your shell profile (`~/.bashrc` or `~/.zshrc`) to make the change persistent.
+
+
 ## 3. Dataset
 
 This repository includes a development dataset of 125 synthetic clinical histories located in the `data` folder. These histories were generated using GPT-4 and are provided for development and testing purposes only. Important notes about the dataset:
