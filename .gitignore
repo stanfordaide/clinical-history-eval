@@ -3,3 +3,4 @@
 outputs
 slurm-*.out
 su300
+*.egg-info/
