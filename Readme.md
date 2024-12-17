@@ -36,7 +36,7 @@ This project uses models from Hugging Face Hub. You'll need to authenticate to a
 
 1. Create a Hugging Face account at [https://huggingface.co/](https://huggingface.co/)
 2. Generate an access token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-3. Install huggingface-cli: `pip install huggingface-cli`
+3. Install huggingface-cli: `pip install 'huggingface_hub[cli]'`
 4. Login using: `huggingface-cli login`
 
 
