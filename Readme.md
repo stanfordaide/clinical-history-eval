@@ -36,7 +36,7 @@ This project uses models from Hugging Face Hub. You'll need to authenticate to a
 
 1. Create a Hugging Face account at [https://huggingface.co/](https://huggingface.co/)
 2. Generate an access token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-3. Install huggingface-cli: `pip install 'huggingface_hub[cli]'`
+3. Install huggingface-cli: `pip install huggingface_hub[cli]`
 4. Login using: `huggingface-cli login`
 
 
@@ -50,6 +50,7 @@ export HF_HOME=/path/to/new/cache/directory
 
 Consider adding the above line to your shell profile (`~/.bashrc` or `~/.zshrc`) to make the change persistent.
 
+After the change, you will need to log in using huggingface-cli again: `huggingface-cli login`
 
 ## 3. Dataset
 
