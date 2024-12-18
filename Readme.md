@@ -48,9 +48,10 @@ If you encounter disk quota issues with the default Hugging Face cache directory
 export HF_HOME=/path/to/new/cache/directory
 ```
 
-Consider adding the above line to your shell profile (`~/.bashrc` or `~/.zshrc`) to make the change persistent.
+Notes:
 
-After the change, you will need to log in using huggingface-cli again: `huggingface-cli login`
+1. Consider adding the above line to your shell profile (`~/.bashrc` or `~/.zshrc`) to make the change persistent.
+2. After the change, you will need to log in using huggingface-cli again: `huggingface-cli login`
 
 ## 3. Dataset
 
