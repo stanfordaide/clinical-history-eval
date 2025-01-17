@@ -21,21 +21,11 @@ This repository contains code for evaluating the completeness of clinical histor
 
 ## 2. Setup
 
-### 2.1 Conda Environment
-Create and activate conda environment
-
-```bash
-conda create -n clinical-history-eval python=3.10
-conda activate clinical-history-eval
-conda install pip
-pip install -e .
-```
-
-### 2.2 Hugging Face Authentication
+### 2.1 Hugging Face Authentication
 This project uses models from Hugging Face Hub. You'll need to authenticate to access them:
 
 1. Create a Hugging Face account at [https://huggingface.co/](https://huggingface.co/)
-2. Generate an access token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+2. Generate an access token at [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens). A "READ" token is sufficient.
 3. Install huggingface-cli: `pip install huggingface_hub[cli]`
 4. Login using: `huggingface-cli login`
 
@@ -47,6 +37,18 @@ If you encounter disk quota issues with the default Hugging Face cache directory
 ```bash
 export HF_HOME=/path/to/new/cache/directory
 ```
+
+### 2.2 Conda Environment
+Create and activate conda environment
+
+```bash
+conda create -n clinical-history-eval python=3.10
+conda activate clinical-history-eval
+conda install pip
+pip install -e .
+```
+
+
 
 Notes:
 
@@ -228,13 +230,13 @@ Both inference and finetuning scripts can be run using Slurm, just pass the pyth
 
 ```bash
 # For inference
-sbatch -c 8 --gres=gpu:l40:1 --time=0 slurm.sh \
+sbatch -c 8 --gres=gpu:<your_device>:1 --time=0 slurm.sh \
     --module=inference \
     --csv=path/to/input.csv \
     --output-dir=test_output
 
 # For finetuning
-sbatch -c 8 --gres=gpu:l40:1 --time=12:00:00 slurm.sh \
+sbatch -c 8 --gres=gpu:<your_device>:1 --time=12:00:00 slurm.sh \
     --module=finetuning \
     --train-data=path/to/train.csv \
     --val-data=path/to/val.csv \

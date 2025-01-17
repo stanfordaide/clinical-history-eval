@@ -26,8 +26,8 @@ for key in "${!args[@]}"; do
             # If value is empty (flag), just add the flag
             python_command+=" --$key"
         else
-            # Otherwise add key-value pair
-            python_command+=" --$key=${args[$key]}"
+            # Otherwise add key-value pair with proper quoting
+            python_command+=" --$key='${args[$key]}'"
         fi
     fi
 done
