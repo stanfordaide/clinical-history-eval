@@ -19,9 +19,27 @@ This repository contains code for evaluating the completeness of clinical histor
 - Where: localization (if applicable)
 - Clinical Concern: diagnostic entities that referring clinician wants to be evaluated
 
+### 1.1 Demo
+
+A live demo of this application is available on Hugging Face Spaces at: [https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf](https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf)
+
 ## 2. Setup
 
-### 2.1 Hugging Face Authentication
+### 2.1 System Requirements
+
+This codebase was developed and tested on the following specifications:
+- 2X Intel Xeon Gold 6338 CPU (32 cores)
+- 1TB RAM
+- NVIDIA Titan A6000 GPU (48GB VRAM)
+
+**Important Notes:**
+- The base model (Mistral-7B) is a large language model that requires significant computational resources
+- Minimum GPU memory requirement: 18GB VRAM for basic inference
+- For systems with less GPU memory, consider using the `--load-in-8bit` or `--load-in-4bit` flags to reduce memory usage
+- Mac compatibility: There are known issues running this codebase on MacOS due to GPU architecture differences
+- For Mac users, we recommend using the provided Hugging Face demo instead
+
+### 2.2 Hugging Face Authentication
 This project uses models from Hugging Face Hub. You'll need to authenticate to access them:
 
 1. Create a Hugging Face account at [https://huggingface.co/](https://huggingface.co/)
@@ -29,8 +47,7 @@ This project uses models from Hugging Face Hub. You'll need to authenticate to a
 3. Install huggingface-cli: `pip install huggingface_hub[cli]`
 4. Login using: `huggingface-cli login`
 
-
-### Optional: Change Hugging Face Cache Directory
+### 2.3 Optional: Change Hugging Face Cache Directory
 
 If you encounter disk quota issues with the default Hugging Face cache directory, you can set the `HF_HOME` environment variable to specify an alternative cache location.
 
@@ -38,7 +55,7 @@ If you encounter disk quota issues with the default Hugging Face cache directory
 export HF_HOME=/path/to/new/cache/directory
 ```
 
-### 2.2 Conda Environment
+### 2.4 Conda Environment
 Create and activate conda environment
 
 ```bash
