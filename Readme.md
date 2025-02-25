@@ -21,7 +21,7 @@ This repository contains code for evaluating the completeness of clinical histor
 
 ### 1.1 Demo
 
-A live demo of this application is available on Hugging Face Spaces at: [https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf](https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf)
+An interactive demo of this application is available on Hugging Face Spaces at: [https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf](https://huggingface.co/spaces/stanfordaide/clinic-hist-eval-demo-hf)
 
 ## 2. Setup
 
